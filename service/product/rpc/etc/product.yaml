@@ -1,0 +1,26 @@
+Name: product.rpc
+ListenOn: 0.0.0.0:9001
+
+Consul:
+  Host: 127.0.0.1:18404
+  Token: 'f0512db6-76d6-f25e-f344-a98cc3484d42' 
+  Key: product.rpc 
+  Meta:
+    Protocol: grpc
+  Tag:
+    - tag
+    - rpc
+
+Mysql:
+  DataSource: root:password@tcp(127.0.0.1:3306)/mall?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+
+CacheRedis:
+- Host: 127.0.0.1:6379
+  Type: node
+  Pass: password
+
+Telemetry:
+  Name: product.rpc
+  Endpoint: http://127.0.0.1:14268/api/traces
+  Sampler: 1.0
+  Batcher: jaeger

@@ -1,0 +1,32 @@
+Name: pay.rpc
+ListenOn: 0.0.0.0:9003
+
+Consul:
+  Host: 127.0.0.1:18404 
+  Token: 'f0512db6-76d6-f25e-f344-a98cc3484d42' 
+  Key: pay.rpc 
+  Meta:
+    Protocol: grpc
+  Tag:
+    - tag
+    - rpc
+
+Mysql:
+  DataSource: root:password@tcp(127.0.0.1:3306)/mall?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+
+CacheRedis:
+- Host: 127.0.0.1:6379
+  Type: node
+  Pass: password
+
+UserRpc:
+  Target: consul://127.0.0.1:18404/user.rpc?wait=14s&token=f0512db6-76d6-f25e-f344-a98cc3484d42
+
+OrderRpc:
+  Target: consul://127.0.0.1:18404/order.rpc?wait=14s&token=f0512db6-76d6-f25e-f344-a98cc3484d42
+
+Telemetry:
+  Name: pay.rpc
+  Endpoint: http://127.0.0.1:14268/api/traces
+  Sampler: 1.0
+  Batcher: jaeger

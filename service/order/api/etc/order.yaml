@@ -1,0 +1,32 @@
+Name: Order
+Host: 0.0.0.0
+Port: 8002
+
+Mysql:
+  DataSource: root:password@tcp(127.0.0.1:3306)/mall?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+
+CacheRedis:
+- Host: 127.0.0.1:6379
+  Type: node
+  Pass: password
+
+Auth:
+  AccessSecret: uOvKLmVfztaXGpNYd4Z0I1SiT7MweJhl
+  AccessExpire: 86400
+
+OrderRpc:
+  Target: consul://127.0.0.1:18404/order.rpc?wait=14s&token=f0512db6-76d6-f25e-f344-a98cc3484d42
+
+ProductRpc:
+  Target: consul://127.0.0.1:18404/product.rpc?wait=14s&token=f0512db6-76d6-f25e-f344-a98cc3484d42
+
+Consul:
+  Host: 127.0.0.1:18404
+  Key: order.rpc
+
+Telemetry:
+  Name: order.api
+  Endpoint: http://127.0.0.1:14268/api/traces
+  Sampler: 1.0
+  Batcher: jaeger
+

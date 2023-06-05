@@ -1,0 +1,37 @@
+Name: user.rpc
+ListenOn: 0.0.0.0:9000
+
+Consul:
+  Host: 127.0.0.1:18404 
+  Token: 'f0512db6-76d6-f25e-f344-a98cc3484d42'
+  Key: user.rpc
+  Meta:
+    Protocol: grpc
+  Tag:
+    - tag
+    - rpc
+
+Mysql:
+  DataSource: root:password@tcp(127.0.0.1:3306)/mall?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+
+CacheRedis:
+- Host: 127.0.0.1:6379
+  Type: node
+  Pass: password
+
+Redis:                   
+  Key: rpc:auth:user     
+  Host: 127.0.0.1:6379
+  Type: node
+  Pass: password
+
+Auth: true               # 是否开启 Auth 验证
+StrictControl: true      # 是否开启严格模式
+
+Salt: HWVOFkGgPTryzICwd7qnJaZR9KQ2i8xe  
+
+Telemetry:
+  Name: user.rpc
+  Endpoint: http://127.0.0.1:14268/api/traces
+  Sampler: 1.0
+  Batcher: jaeger
