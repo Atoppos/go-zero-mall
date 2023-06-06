@@ -28,7 +28,7 @@
 - common[通用组件]
   - cryptx[密码加盐]
   - jwtx[JWT令牌]
-- service[所有业务代码，api、model、rpc]
+- service[所有业务代码，每个服务下分为api、model、rpc]
   - order
   - pay
   - product
