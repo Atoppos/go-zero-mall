@@ -25,15 +25,15 @@
 
 ---
 
-- common[通用组件]
-  - cryptx[密码加盐]
-  - jwtx[JWT令牌]
-- service[所有业务代码，每个服务下分为api、model、rpc]
+- common [通用组件]
+  - cryptx [密码加盐]
+  - jwtx [JWT令牌]
+- service [所有业务代码，每个服务下分为api、model、rpc]
   - order
   - pay
   - product
   - user
-- prometheus.yml[Prometheus配置文件]
+- prometheus.yml [Prometheus配置文件]
 
 ## 注意⚠️
 
