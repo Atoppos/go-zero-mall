@@ -1,6 +1,6 @@
 module mall
 
-go 1.20
+go 1.21.1
 
 require (
 	github.com/dtm-labs/client v1.17.3
